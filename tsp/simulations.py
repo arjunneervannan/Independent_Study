@@ -6,7 +6,7 @@ from tqdm import tqdm
 
 def euclidean_distance(point1, point2):
     """Calculate the Euclidean distance between two points."""
-    return math.sqrt((point2[0] - point1[0])**2 + (point2[1] - point1[1])**2)
+    return (point2[0] - point1[0])**2 + (point2[1] - point1[1])**2
 
 def total_distance(points):
     """Calculate the total distance to visit all points and loop back to the starting point."""
@@ -24,13 +24,13 @@ def total_distance(points):
 
 
 def generate_points(num_points):
-    np.random.seed(0)
     return np.random.rand(num_points, 2)
+
 
 if __name__ == '__main__':
     dimensions = 2
     num_points = 50
-    num_iterations = 1000
+    num_iterations = 10
     hilbert_order = 4
     distance_list = []
     
