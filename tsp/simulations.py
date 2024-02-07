@@ -34,9 +34,10 @@ if __name__ == '__main__':
     hilbert_order = 4
     distance_list = []
     
-    for iter in tqdm(num_iterations):
+    for iter in tqdm(range(num_iterations)):
         points = generate_points(num_points)
         square_ranges = generate_hilbert_curve_squares(2)
         final_order = define_order(points, square_ranges)
         distance_list.append(total_distance(final_order))
-        
+    
+    print(f"Average distance: {np.mean(distance_list)}")
