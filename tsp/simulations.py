@@ -29,9 +29,9 @@ def generate_points(num_points):
 
 if __name__ == '__main__':
     dimensions = 2
-    num_points = 50
-    num_iterations = 10
-    hilbert_order = 4
+    num_points = 10000
+    num_iterations = 1000
+    hilbert_order = 7
     distance_list = []
     
     for iter in tqdm(range(num_iterations)):
@@ -41,3 +41,6 @@ if __name__ == '__main__':
         distance_list.append(total_distance(final_order))
     
     print(f"Average distance: {np.mean(distance_list)}")
+    print(f"Standard deviation: {np.std(distance_list)}")
+    print(f"Minimum distance: {np.min(distance_list)}")
+    print(f"Maximum distance: {np.max(distance_list)}")
