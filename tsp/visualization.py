@@ -19,8 +19,8 @@ def display_path(points):
     plt.grid(True)
     plt.show()
 
-points = generate_points(100)
-square_ranges = generate_hilbert_curve_squares(3)
+points = generate_points(1000)
+square_ranges = generate_hilbert_curve_squares(4)
 final_order = define_order(points, square_ranges)
 display_path(final_order)
 
