@@ -13,7 +13,7 @@ def display_path(points):
     y_values = [point[1] for point in points]
     
     plt.plot(x_values, y_values, marker='o', linestyle='-')
-    plt.title('TSP Shortest Path')
+    plt.title(f'TSP Shortest Path with {len(points)} points, Distance:{total_distance(points):.2f}')
     plt.xlabel('X')
     plt.ylabel('Y')
     plt.grid(True)
