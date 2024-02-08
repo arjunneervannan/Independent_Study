@@ -30,13 +30,13 @@ def generate_points(num_points):
 if __name__ == '__main__':
     dimensions = 2
     num_points = 10000
-    num_iterations = 1000
+    num_iterations = 10
     hilbert_order = 7
     distance_list = []
     
     for iter in tqdm(range(num_iterations)):
         points = generate_points(num_points)
-        square_ranges = generate_hilbert_curve_squares(2)
+        square_ranges = generate_hilbert_curve_squares(hilbert_order)
         final_order = define_order(points, square_ranges)
         distance_list.append(total_distance(final_order))
     
