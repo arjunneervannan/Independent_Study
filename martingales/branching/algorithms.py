@@ -39,7 +39,7 @@ def simulate_infection(N, lambda_val, p, num_iterations):
                         generation[pair[0] - 1] = current_generation + 1
         infection_status = next_round_infection_status
 
-    return infection_status, parents, generation
+    return infection_status, parent, generation
 
 # Example usage
 N = 100  # Number of people
