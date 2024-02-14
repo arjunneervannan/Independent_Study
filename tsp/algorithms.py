@@ -17,7 +17,7 @@ def display_path(points):
     y_values = [point[1] for point in points]
     
     plt.plot(x_values, y_values, marker='o', linestyle='-')
-    plt.title(f'TSP Shortest Path with {len(points)} points, Distance:{total_distance(points):.2f}')
+    plt.title(f'TSP Shortest Path with {len(points)} points, Distance:{total_distance_squared(points):.2f}')
     plt.xlabel('X')
     plt.ylabel('Y')
     plt.grid(True)
@@ -32,7 +32,7 @@ def euclidean_distance_squared(point1, point2):
     return (point2[0] - point1[0])**2 + (point2[1] - point1[1])**2
 
 
-def total_distance(points):
+def total_distance_squared(points):
     """Calculate the total distance to visit all points and loop back to the starting point."""
     total = 0
     num_points = len(points)
@@ -105,18 +105,16 @@ def optimal_order(points):
      # Generate all permutations of indices
     number = 0
      
-    for permutation in itertools.permutations(range(num_points)):
-        print(f'{number} permutation')
+    for permutation in tqdm(itertools.permutations(range(num_points))):
         number = number + 1
         distance = total_distance(points, permutation)
         if distance < min_distance:
             min_distance = distance
             shortest_route = permutation
-    return shortest_route, min_distance
+    
+    final_order = []
+    for city in shortest_route:
+        final_order.append((points[city][0], points[city][1]))
+    return np.asarray(final_order), min_distance
 
 
-points = generate_points(10)
-# square_ranges = generate_hilbert_curve_squares(4)
-final_order, min_distance = optimal_order(points)
-print(final_order, min_distance)
-# display_path(final_order)

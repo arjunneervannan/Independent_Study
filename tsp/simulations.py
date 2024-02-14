@@ -25,7 +25,7 @@ if __name__ == '__main__':
                 points = generate_points(num_points)
                 square_ranges = generate_hilbert_curve_squares(hilbert_order)
                 final_order = define_order(points, square_ranges)
-                distance_list.append(total_distance(final_order))
+                distance_list.append(total_distance_squared(final_order))
             
             avg_dists.append(np.mean(distance_list))
             std_devs.append(np.std(distance_list))
