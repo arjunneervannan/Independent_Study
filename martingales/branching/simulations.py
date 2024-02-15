@@ -3,7 +3,7 @@ from tqdm import tqdm
 
 
 if __name__ == '__main__':
-    num_iterations = 1000
+    num_iterations = 50
     N = [10, 50, 100, 500, 1000]
     lambda_val = [0.3, 0.5, 1, 2]
     p_val = 0.3
@@ -13,7 +13,7 @@ if __name__ == '__main__':
     for lambda_val in tqdm(lambda_val):
         for num_points in tqdm(N):
             avg_generations = []
-            for iter in range(num_iterations):
+            for iter in tqdm(range(num_iterations)):
                 infection_status, parent, generation, num_generation = simulate_infection(num_points, lambda_val, p_val)
                 avg_generations.append(num_generation)
             
