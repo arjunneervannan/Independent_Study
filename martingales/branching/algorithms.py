@@ -5,7 +5,7 @@ import random
 import networkx as nx
 import matplotlib.pyplot as plt
 
-def visualize_tree(parents, generation):
+def visualize_tree(parents, generation, if_labels):
     """Visualize a tree based on parent array and generation matrix."""
     G = nx.DiGraph()
 
@@ -18,8 +18,9 @@ def visualize_tree(parents, generation):
         pos[i] = (i, -level)
 
     nx.draw(G, pos, with_labels=False, node_size=100, node_color="skyblue", font_size=12, font_weight="bold")
-    for i, level in enumerate(generation):
-        plt.text(i, -level, f'Level: {level}', ha='center', va='center', fontsize=8, color='red')
+    if if_labels:
+        for i, level in enumerate(generation):
+            plt.text(i, -level, f'Level: {level}', ha='center', va='center', fontsize=8, color='red')
         
     plt.title("Tree Visualization")
     plt.show()
