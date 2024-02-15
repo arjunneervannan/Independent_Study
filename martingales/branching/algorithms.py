@@ -51,7 +51,7 @@ def simulate_infection(N, lambda_val, p):
     current_generation = 0
 
     while (still_infectious):
-        print(f'generation # {current_generation}')
+        # print(f'generation # {current_generation}')
         # Iterate over all pairs of people
         for pair in pairs:
             if np.random.poisson(lambda_val) > 0:
