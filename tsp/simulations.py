@@ -3,7 +3,6 @@ import numpy as np
 from algorithms import *
 
 
-
 if __name__ == '__main__':
     dimensions = 2
     test_num_pts = [5, 10, 50, 100, 500, 1000]

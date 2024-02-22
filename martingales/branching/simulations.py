@@ -15,7 +15,7 @@ if __name__ == '__main__':
         for num_points in tqdm(N):
             avg_generations = []
             for iter in tqdm(range(num_iterations)):
-                infection_status, parent, generation, num_generation = simulate_infection(num_points, lambda_val, p_val)
+                infection_status, parent, generation, num_generation = simulate_infection_old(num_points, lambda_val, p_val)
                 avg_generations.append(num_generation)
             
             # print(f'Average number of generations for {num_points} people, lambda = {lambda_val}, p = {p_val}: {np.mean(avg_generations)}')
